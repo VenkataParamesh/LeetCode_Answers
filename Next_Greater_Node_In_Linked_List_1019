@@ -1,0 +1,80 @@
+package LinkedListQuestions;
+
+import java.util.ArrayList;
+
+
+
+public class Next_Greater_Node_In_Linked_List_1019 
+{
+	static class Node
+	{
+		int data;
+		Node next;
+		Node(int data)
+		{
+			this.data=data;
+			this.next=null;	
+		}
+	}
+	static void display(Node node)
+	{
+	Node temp=node;
+	 if(temp==null)
+	 {
+		 System.out.println("Linked list is empty :");
+	 }
+	 else
+	 {
+		while(temp.next!=null)
+		{
+			System.out.print(temp.data+"->");
+			temp=temp.next;
+		}
+		System.out.println(temp.data+"->End");
+	 }
+	}
+	 public static ArrayList<Integer> nextLargerNodes(Node head)
+	 {
+		 ArrayList<Integer> arr=new ArrayList<>();
+		 Node temp1=head,temp2=null;
+		 while(temp1.next!=null)
+		 {
+			int a=temp1.data;
+			temp2=temp1.next;
+			boolean find=false;
+			while(temp2!=null)
+			{
+			 int b=temp2.data;
+			 if(a<b)
+			 {
+				find=true;
+				arr.add(b); 
+				break;
+			 }
+			 else {
+				 temp2=temp2.next;
+			 }
+			}
+			if(!find)
+			{
+				arr.add(0);
+			}
+			temp1=temp1.next;
+		 }
+		 arr.add(0);
+		 return arr;
+		 
+	 }
+	static Node headA=null;
+	public static void main(String args[])
+	{
+		headA=new Node(2);
+		headA.next=new Node(7);
+		headA.next.next=new Node(4);
+		headA.next.next.next=new Node(3);
+		headA.next.next.next.next=new Node(5);
+		display(headA);
+		System.out.println(nextLargerNodes(headA));
+	
+	}
+}
