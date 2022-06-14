@@ -1,0 +1,23 @@
+class Solution {
+    public ListNode sortList(ListNode head) {
+    ListNode temp1=head;
+    ArrayList<Integer> al=new ArrayList<>();
+    while(temp1!=null)
+    {
+        al.add(temp1.val);
+        temp1=temp1.next;
+    }
+    Collections.sort(al);
+    int i=0;
+    int n=al.size();
+    temp1=head;
+    while(i<n)
+    {
+        temp1.val=al.get(i);
+        temp1=temp1.next;
+        i++;
+        
+    }
+    return head;
+    }
+}
