@@ -1,0 +1,13 @@
+class Solution {
+    public int minimumSum(int num) {
+        ArrayList<Integer> ar=new ArrayList<>();
+        while(num>0)
+        {
+            int remainder=num%10;
+            ar.add(remainder);
+            num=num/10;
+        }
+        Collections.sort(ar);
+        return (ar.get(0)*10+ar.get(2)+ar.get(1)*10+ar.get(3));
+    }
+}
