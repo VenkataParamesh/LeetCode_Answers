@@ -9,7 +9,7 @@ class Solution {
         {
             sb.append(str.charAt(i));
             count++;
-            if(count==0&&i!=0)
+            if(count==3&&i!=0)
             {
                 sb.append(".");
                 count=0;
